@@ -62,14 +62,13 @@ main proc
     mov dl, 2
     call print_colored_line
    
-
     lea bp, ln0
     mov cx, 2   ; Length of "ass" string
     mov bl, 70h ; White background (7), Black text (0)
     mov dl, 78   ; Start from column 0
     call print_colored_line 
      inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; Reset color for the form
@@ -93,7 +92,7 @@ main proc
     mov dl, 78   ; Start from column 0
     call print_colored_line 
      inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; Reset color for the form
@@ -117,11 +116,11 @@ main proc
     mov dl, 78   ; Start from column 0
     call print_colored_line 
      inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     lea bp, lnm1
-    mov bl, 70h ; Red background, white text
-     mov cx, 77  ; String length
+    mov bl, 70h 
+     mov cx, 77 
     call print_colored_line
     inc dh
 
@@ -148,7 +147,7 @@ main proc
     mov dl, 78   ; Start from column 0
     call print_colored_line 
      inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ; Reset color for the form
     lea bp, ln0
     mov cx, 2   ; Length of "ass" string
@@ -163,7 +162,7 @@ main proc
     mov dl, 2
     call print_colored_line
     inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     lea bp, ln6
     call print_colored_line
     inc dh
@@ -203,7 +202,7 @@ main proc
     mov dl, 47   ; Start from column 0
     call print_colored_line 
     inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     mov bl, 70h ; Reset to black background, white text
     
@@ -232,8 +231,8 @@ main proc
     mov bl, 70h ; White background (7), Black text (0)
     mov dl, 78   ; Start from column 0
     call print_colored_line 
-     inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+    inc dh
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
    lea bp, ln13
     call print_colored_line
@@ -270,7 +269,7 @@ main proc
     mov dl, 78   ; Start from column 0
     call print_colored_line 
      inc dh
-;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
     
 
