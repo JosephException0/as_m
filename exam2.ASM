@@ -15,7 +15,7 @@
                 DB 1Bh, '[30;43m', 'a - Addition', 1Bh, '[0m', 13, 10
                 DB 1Bh, '[30;42m', 's - Subtraction', 1Bh, '[0m', 13, 10
                 DB 1Bh, '[30;46m', 'm - Multiplication', 1Bh, '[0m', 13, 10
-                DB 1Bh, '[30;41m', 'd - Division', 1Bh, '[0m', 13, 10
+                DB 1Bh, '[30;45m', 'd - Division', 1Bh, '[0m', 13, 10
                 DB 1Bh, '[30;47m', 'e - Exit', 1Bh, '[0m', 13, 10,'$'
 
     choice_msg  DB 'Enter your choice: $'
@@ -29,26 +29,28 @@
     first_res   DB 'First addend is: $'
     second_res  DB 'Second addend is: $'
 
-    add_msg2    DB 13, 10, 1Bh, '[30;43m', 'Subtraction', 1Bh, '[0m', 13, 10, '$'
+    add_msg2    DB 13, 10, 1Bh, '[30;42m', 'Subtraction', 1Bh, '[0m', 13, 10, '$'
     first_minus DB 'Enter minuend: $'
     second_minus DB 'Enter subtrahend: $'
     first_resminus DB 'Minuend is: $'
     second_resminus DB 'Subtrahend is: $'
 
-    add_msg3    DB 13, 10, 1Bh, '[30;43m', 'Multiplication', 1Bh, '[0m', 13, 10, '$'
+    add_msg3    DB 13, 10, 1Bh, '[30;46m', 'Multiplication', 1Bh, '[0m', 13, 10, '$'
     first_multip DB 'Enter multiplicand: $'
     second_multip DB 'Enter multiplier: $'
     first_resmultip DB 'Multiplicand is: $'
     second_resmultip DB 'Multiplier is: $'
 
-    add_msg4    DB 13, 10, 1Bh, '[30;43m', 'Division', 1Bh, '[0m', 13, 10, '$'
+    add_msg4    DB 13, 10, 1Bh, '[30;45m', 'Division', 1Bh, '[0m', 13, 10, '$'
     first_divide DB 'Enter dividend: $'
     second_divide DB 'Enter divisor: $'
     first_divide2 DB 'Dividend is: $'
     second_divide2 DB 'Divisor is: $'
 
     error       DB 13,10,10,1Bh, '[33;41;5m', 'INVALID CHOICE!', 1Bh, '[0m', '$'
+    
 
+     exit       DB 13,10,10,1Bh, '[30;47m', 'Exit Program', 1Bh, '[0m', '$'
 .CODE
 display_addition proc
     ; Print newline
@@ -108,6 +110,7 @@ display_addition proc
     MOV AH, 09h
     INT 21h
 
+    call display_exit
     RET
 display_addition endp
 
@@ -168,6 +171,8 @@ display_subtraction proc
     LEA DX, newline
     MOV AH, 09h
     INT 21h
+
+    call display_exit
 
     RET
 display_subtraction endp
@@ -230,6 +235,8 @@ display_multiplication proc
     MOV AH, 09h
     INT 21h
 
+    call display_exit
+
     RET
 display_multiplication endp
 
@@ -291,6 +298,7 @@ display_division proc
     MOV AH, 09h
     INT 21h
 
+    call display_exit
     RET
 display_division endp
 
@@ -301,6 +309,23 @@ display_exit proc
     INT 21h
     RET
 display_exit endp
+
+edisplay_exit1 proc
+    ; Thank you message
+    LEA DX, exit
+    MOV AH, 09h
+    INT 21h
+
+    LEA DX, newline
+    MOV AH, 09h
+    INT 21h
+
+
+    CALL display_exit
+    RET
+edisplay_exit1 endp
+
+
 
 display_error proc
     ; Error message
@@ -374,7 +399,7 @@ CALL_DIVISION:
     JMP EXIT_PROGRAM
 
 CALL_EXIT:
-    CALL display_exit
+    CALL edisplay_exit1
     JMP EXIT_PROGRAM
 
 EXIT_PROGRAM:
