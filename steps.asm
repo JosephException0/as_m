@@ -25,6 +25,7 @@
     newline     db 13,10,'$'
     buffer      db 6,0       ; Buffer for number input (5 digits + Enter)
                 db 6 dup(0)
+                
    
     ; Month names
     months      db 'January  $'
